@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "herbruclient",
+  "version": "0.1.0",
+  "name": "HerbruClient",
+  "description": "Ein modularer Minecraft-Client von HerbruClient.",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["de.herbru.client.HerbruClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

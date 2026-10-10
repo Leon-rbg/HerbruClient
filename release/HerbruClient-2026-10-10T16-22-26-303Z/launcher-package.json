@@ -1,0 +1,29 @@
+{
+  "name": "herbruclient-launcher",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sicherer Minecraft-Launcher von HerbruClient",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.main.json && tsc -p tsconfig.renderer.json && node scripts/copy-assets.mjs",
+    "start": "npm run build && electron .",
+    "test": "npm run build && node --test test/*.test.cjs",
+    "dist:win": "npm run build && electron-builder --win nsis portable --x64",
+    "prepare-release": "node scripts/prepare-release.mjs",
+    "client:download": "node scripts/client-download.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "electron": "^38.3.0",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.9.3"
+  },
+  "build": {
+    "appId": "de.herbru.client",
+    "productName": "HerbruClient",
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "package.json"],
+    "win": { "target": ["nsis", "portable"] },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}

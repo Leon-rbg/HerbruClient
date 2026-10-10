@@ -1,0 +1,24 @@
+{
+  "name": "HerbruClient",
+  "version": "0.1.0",
+  "buildTime": "2026-10-10T16:22:34.043Z",
+  "launcher": {
+    "source": "launcher",
+    "entry": "index.html",
+    "notes": "Electron bundle for local launcher usage. Run with: npm install && npm start from launcher/"
+  },
+  "client": {
+    "source": "client",
+    "files": [
+      "herbruclient-0.1.0-sources.jar",
+      "herbruclient-0.1.0.jar"
+    ],
+    "notes": "Fabric client jar ready to be used with a local Minecraft installation."
+  },
+  "usage": [
+    "1. Open the launcher bundle in release/HerbruClient-<timestamp>/launcher",
+    "2. Install dependencies in launcher/ with npm install",
+    "3. Start the launcher with npm start",
+    "4. Use the copied client jar from release/HerbruClient-<timestamp>/client"
+  ]
+}
