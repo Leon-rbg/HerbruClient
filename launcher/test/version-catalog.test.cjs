@@ -40,17 +40,19 @@ test('filtert nach Typ und case-insensitiver Versionssuche', () => {
 test('liefert die tatsächliche Support-Matrix für Versionen ab 1.20.0', () => {
   const matrix = getSupportMatrix(manifest);
   assert.equal(matrix.supportedMinVersion, '1.20.0');
-  assert.equal(matrix.verifiedBuildTarget, '1.20.1');
   assert.deepEqual(matrix.supportedReleaseVersions, ['1.20', '1.21.4']);
   assert.deepEqual(matrix.supportedSnapshotVersions, ['24w14a', '25w01a']);
   assert.equal(matrix.supportedCount, 4);
+  assert.equal(matrix.modBuildStrategy, 'Minecraft-spezifische Fabric-JARs für stabile Releases');
 });
 
 test('erkennt Java- und Installationsanforderungen für Instanzen korrekt', () => {
   const { evaluateJavaRequirement, createInstanceProfile, createInstallPlan, InstanceManager, checkLoaderCompatibility } = require('../dist/main/instance-manager.js');
 
   assert.deepEqual(evaluateJavaRequirement('1.20.1'), { requiredJavaMajor: 17, recommendedMemoryMb: 2048, compatible: true });
+  assert.deepEqual(evaluateJavaRequirement('1.20.5'), { requiredJavaMajor: 21, recommendedMemoryMb: 4096, compatible: true });
   assert.deepEqual(evaluateJavaRequirement('1.21.4'), { requiredJavaMajor: 21, recommendedMemoryMb: 4096, compatible: true });
+  assert.deepEqual(evaluateJavaRequirement('26.3'), { requiredJavaMajor: 25, recommendedMemoryMb: 4096, compatible: true });
 
   const loaderCompatibility = checkLoaderCompatibility('1.21.4', 'fabric');
   assert.equal(loaderCompatibility.supported, true);

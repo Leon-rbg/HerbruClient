@@ -1,6 +1,6 @@
 {
   "name": "herbruclient-launcher",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Sicherer Minecraft-Launcher von HerbruClient",
   "main": "dist/main/main.js",
@@ -10,7 +10,8 @@
     "test": "npm run build && node --test test/*.test.cjs",
     "dist:win": "npm run build && electron-builder --win nsis portable --x64",
     "prepare-release": "node scripts/prepare-release.mjs",
-    "client:download": "node scripts/client-download.mjs"
+    "client:download": "node scripts/client-download.mjs",
+    "release:client": "node ../client/scripts/build-release-variants.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.19.0",

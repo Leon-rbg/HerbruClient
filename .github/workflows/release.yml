@@ -1,0 +1,71 @@
+name: Publish release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  client-mods:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 25
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: gradle/actions/setup-gradle@v4
+      - run: node client/scripts/build-release-variants.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: client-mods
+          path: |
+            release/HerbruClient-v*/RELEASE_NOTES.md
+            release/HerbruClient-v*/client-variants.json
+            release/HerbruClient-v*/client/
+            release/HerbruClient-v*.zip
+          if-no-files-found: error
+
+  windows-launcher:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: launcher
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: launcher/package-lock.json
+      - run: npm ci
+      - run: npm run dist:win
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-launcher
+          path: |
+            launcher/release/*.exe
+            launcher/release/*.blockmap
+          if-no-files-found: error
+
+  publish:
+    runs-on: ubuntu-latest
+    needs:
+      - client-mods
+      - windows-launcher
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: HerbruClient ${{ github.ref_name }}
+          body_path: RELEASE_NOTES.md
+          files: release-assets/**/*

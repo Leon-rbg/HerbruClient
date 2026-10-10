@@ -62,8 +62,9 @@ export function evaluateJavaRequirement(versionId: string): JavaRequirement {
     return { requiredJavaMajor: 17, recommendedMemoryMb: 2048, compatible: false };
   }
 
-  const requiresJava21 = parsed.major > 1 || (parsed.major === 1 && parsed.minor >= 21);
-  const requiredJavaMajor = requiresJava21 ? 21 : 17;
+  const requiresJava25 = parsed.major >= 26;
+  const requiresJava21 = parsed.major > 1 || (parsed.major === 1 && (parsed.minor >= 21 || (parsed.minor === 20 && parsed.patch >= 5)));
+  const requiredJavaMajor = requiresJava25 ? 25 : requiresJava21 ? 21 : 17;
   const recommendedMemoryMb = requiredJavaMajor >= 21 ? 4096 : 2048;
 
   return {

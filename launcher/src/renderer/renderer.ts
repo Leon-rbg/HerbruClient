@@ -62,18 +62,18 @@ const installStatus = document.querySelector<HTMLParagraphElement>('#install-sta
 
 function getLocalSupportMatrix(manifest: MinecraftVersionManifest): {
   supportedMinVersion: string;
-  verifiedBuildTarget: string;
   supportedReleaseVersions: string[];
   supportedSnapshotVersions: string[];
   supportedCount: number;
+  modBuildStrategy: string;
 } {
   const supported = selectMinecraftVersions(manifest, 'all', '');
   return {
     supportedMinVersion: '1.20.0',
-    verifiedBuildTarget: '1.20.1',
     supportedReleaseVersions: supported.filter((version) => version.type === 'release').map((version) => version.id),
     supportedSnapshotVersions: supported.filter((version) => version.type === 'snapshot').map((version) => version.id),
     supportedCount: supported.length,
+    modBuildStrategy: 'Minecraft-spezifische Fabric-JARs für stabile Releases',
   };
 }
 
@@ -271,7 +271,7 @@ void window.herbruClient.getMinecraftVersions().then((result: MinecraftVersionMa
   document.querySelector('#connection-status')!.textContent = 'Verbunden';
   document.querySelector('#latest-release')!.textContent = `Aktuelles Release ${result.latest.release}`;
   const matrix = getLocalSupportMatrix(result);
-  supportMatrix.textContent = `Unterstützt: ${matrix.supportedMinVersion}+ · Verifiziert: ${matrix.verifiedBuildTarget} · ${matrix.supportedCount} Einträge im Katalog`;
+  supportMatrix.textContent = `Katalog: ${matrix.supportedMinVersion}+ · ${matrix.modBuildStrategy} · ${matrix.supportedCount} Einträge`;
   populateHomeVersions();
   renderVersions();
   playButton.disabled = !versionSelect.value;

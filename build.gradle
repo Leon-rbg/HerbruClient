@@ -1,3 +1,4 @@
 plugins {
-    id 'fabric-loom' version '1.12.7' apply false
+    id 'fabric-loom' version '1.17.21' apply false
+    id 'net.fabricmc.fabric-loom' version '1.17.21' apply false
 }

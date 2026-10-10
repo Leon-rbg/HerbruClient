@@ -39,9 +39,9 @@ function getSupportMatrix(manifest) {
     const supported = selectMinecraftVersions(manifest, 'all', '');
     return {
         supportedMinVersion: '1.20.0',
-        verifiedBuildTarget: '1.20.1',
         supportedReleaseVersions: supported.filter((version) => version.type === 'release').map((version) => version.id),
         supportedSnapshotVersions: supported.filter((version) => version.type === 'snapshot').map((version) => version.id),
         supportedCount: supported.length,
+        modBuildStrategy: 'Minecraft-spezifische Fabric-JARs für stabile Releases',
     };
 }
