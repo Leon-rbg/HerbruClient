@@ -26,10 +26,10 @@ jobs:
         with:
           name: client-mods
           path: |
-            release/HerbruClient-v*/RELEASE_NOTES.md
-            release/HerbruClient-v*/client-variants.json
-            release/HerbruClient-v*/client/
-            release/HerbruClient-v*.zip
+            release/HeibruClient-v*/RELEASE_NOTES.md
+            release/HeibruClient-v*/client-variants.json
+            release/HeibruClient-v*/client/
+            release/HeibruClient-v*.zip
           if-no-files-found: error
 
   windows-launcher:
@@ -66,6 +66,6 @@ jobs:
           path: release-assets
       - uses: softprops/action-gh-release@v2
         with:
-          name: HerbruClient ${{ github.ref_name }}
+          name: HeibruClient ${{ github.ref_name }}
           body_path: RELEASE_NOTES.md
           files: release-assets/**/*

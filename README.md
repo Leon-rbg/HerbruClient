@@ -1,6 +1,6 @@
-# HerbruClient
+# HeibruClient
 
-HerbruClient ist ein eigenständiges Minecraft-Java-Client- und Launcher-Projekt. Version 0.2.0 enthält einen Electron-Launcher mit dynamischem offiziellem Versionskatalog und Minecraft-spezifische Fabric-Mod-JARs für stabile Releases ab Minecraft 1.20.
+HeibruClient ist ein eigenständiges Minecraft-Java-Client- und Launcher-Projekt. Version 0.2.0 enthält einen Electron-Launcher mit dynamischem offiziellem Versionskatalog und Minecraft-spezifische Fabric-Mod-JARs für stabile Releases ab Minecraft 1.20.
 
 ## Stand und Kompatibilität
 
@@ -48,7 +48,7 @@ Codespaces kann den Client kompilieren. Eine grafische Minecraft-Sitzung oder ei
 
 ## Launcher
 
-Der Launcher fragt das offizielle Mojang-Versionsmanifest zur Laufzeit ab, bietet Filter für Releases, Snapshots und weitere Manifest-Einträge und blendet Einträge vor Minecraft 1.20 aus. Die Auswahl zeigt Minecraft-Versionen; das dazu passende Herbru-Mod-Artefakt wird im Release separat für jeden stabilen Release gebaut. Die Versionsdaten werden im Electron-Hauptprozess geladen; der Renderer erhält nur eine schmale IPC-API. Node-Integration ist deaktiviert, Context Isolation und Sandbox sind aktiviert.
+Der Launcher fragt das offizielle Mojang-Versionsmanifest zur Laufzeit ab, bietet Filter für Releases, Snapshots und weitere Manifest-Einträge und blendet Einträge vor Minecraft 1.20 aus. Die Auswahl zeigt Minecraft-Versionen; das dazu passende Heibru-Mod-Artefakt wird im Release separat für jeden stabilen Release gebaut. Die Versionsdaten werden im Electron-Hauptprozess geladen; der Renderer erhält nur eine schmale IPC-API. Node-Integration ist deaktiviert, Context Isolation und Sandbox sind aktiviert.
 
 Der PLAY-Button ist in diesem Grundstand absichtlich nicht verfügbar: Authentifizierung, Installation und Startvalidierung sind noch nicht implementiert. Es werden weder Zugangsdaten noch erfundene Installationszustände verwendet.
 
@@ -56,7 +56,7 @@ Windows-Pakete: `cd launcher && npm run dist:win`. Paketieren für Windows sollt
 
 ## Client-Mod
 
-Das Fabric-Modul registriert H zum Ein- und Ausschalten einer FPS-Anzeige. Release-JARs werden automatisch für alle zum Build-Zeitpunkt im offiziellen Mojang-Manifest aufgeführten stabilen Versionen ab 1.20 erstellt. Bis einschließlich Minecraft 1.21.11 werden Yarn-Mappings benutzt; für 26.x werden Minecrafts direkte Mojang-Namen und die neue Fabric HUD-API verwendet. Die Datei `release/HerbruClient-v<version>/client-variants.json` listet exakte Minecraft-, Java-, Loader- und Fabric-API-Versionen sowie SHA-256-Prüfsummen jeder JAR.
+Das Fabric-Modul registriert H zum Ein- und Ausschalten einer FPS-Anzeige. Release-JARs werden automatisch für alle zum Build-Zeitpunkt im offiziellen Mojang-Manifest aufgeführten stabilen Versionen ab 1.20 erstellt. Bis einschließlich Minecraft 1.21.11 werden Yarn-Mappings benutzt; für 26.x werden Minecrafts direkte Mojang-Namen und die neue Fabric HUD-API verwendet. Die Datei `release/HeibruClient-v<version>/client-variants.json` listet exakte Minecraft-, Java-, Loader- und Fabric-API-Versionen sowie SHA-256-Prüfsummen jeder JAR.
 
 ## Entwicklung und Releases
 
@@ -69,7 +69,7 @@ Das Fabric-Modul registriert H zum Ein- und Ausschalten einer FPS-Anzeige. Relea
 - Windows x64 paketieren: `cd launcher && npm run dist:win`
 - CI: GitHub Actions baut Launcher und Clientmodul und führt die Launcher-Tests aus.
 
-Der Befehl `npm run prepare-release` erzeugt ein nutzbares Paket unter `release/HerbruClient-<timestamp>/` mit:
+Der Befehl `npm run prepare-release` erzeugt ein nutzbares Paket unter `release/HeibruClient-<timestamp>/` mit:
 - `launcher/` für den Launcher-Build
 - `client/` für die fertige Fabric-JAR
 - `manifest.json` mit Installationshinweisen
@@ -87,4 +87,4 @@ Tags im Format `v<launcher-version>` starten den GitHub-Release-Workflow. Er bau
 
 ## Lizenz und Drittanbieter
 
-Minecraft ist Eigentum von Mojang/Microsoft. HerbruClient ist unabhängig und weder mit Mojang noch Microsoft verbunden. Der Launcher lädt in diesem Stand ausschließlich Metadaten des offiziellen Minecraft-Manifests. Fabric Loader, Fabric API, Gradle, Electron und TypeScript unterliegen jeweils ihren eigenen Lizenzen; ihre Lizenztexte sind nicht Bestandteil dieses Quellstands.
+Minecraft ist Eigentum von Mojang/Microsoft. HeibruClient ist unabhängig und weder mit Mojang noch Microsoft verbunden. Der Launcher lädt in diesem Stand ausschließlich Metadaten des offiziellen Minecraft-Manifests. Fabric Loader, Fabric API, Gradle, Electron und TypeScript unterliegen jeweils ihren eigenen Lizenzen; ihre Lizenztexte sind nicht Bestandteil dieses Quellstands.

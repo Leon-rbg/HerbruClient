@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "herbruclient",
+  "id": "heibruclient",
   "version": "${version}",
-  "name": "HerbruClient",
-  "description": "Ein modularer Minecraft-Client von HerbruClient.",
+  "name": "HeibruClient",
+  "description": "Ein modularer Minecraft-Client von HeibruClient.",
   "environment": "client",
   "entrypoints": {
-    "client": ["de.herbru.client.HerbruClient"]
+    "client": ["de.heibru.client.HeibruClient"]
   },
   "depends": {
     "fabricloader": ">=0.16.0",

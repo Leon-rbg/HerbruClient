@@ -1,4 +1,4 @@
-# HerbruClient 0.2.0
+# HeibruClient 0.2.0
 
 ## Neu in dieser Version
 
@@ -11,7 +11,7 @@
 
 ## Kompatibilität und Hinweise
 
-- Nur stabile Minecraft-Releases ab 1.20 erhalten eine HerbruClient-JAR. Snapshots und Pre-Releases sind nicht Teil der Mod-Buildmatrix.
+- Nur stabile Minecraft-Releases ab 1.20 erhalten eine HeibruClient-JAR. Snapshots und Pre-Releases sind nicht Teil der Mod-Buildmatrix.
 - Verwende ausschließlich die JAR, deren Minecraft-Version exakt zu deiner Spielversion passt.
 - Der Launcher-Build und die Mod-Kompilierung bestätigen nicht automatisch den Spielstart. Authentifizierung und vollständiger Spielstart sind weiterhin nicht implementiert.
 - Der Windows-Launcher wird als x64-Installer und portable Anwendung bereitgestellt.

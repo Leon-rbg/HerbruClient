@@ -1,5 +1,5 @@
 {
-  "name": "HerbruClient Development",
+  "name": "HeibruClient Development",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {

@@ -111,7 +111,7 @@ async function installSelectedVersion() {
     installStatus.textContent = `Version ${versionId} wird installiert...`;
     installStatus.classList.remove('error');
     try {
-        const result = await window.herbruClient.installVersion({
+        const result = await window.heibruClient.installVersion({
             versionId,
             loader: 'fabric',
             loaderVersion: '0.16.14',
@@ -141,7 +141,7 @@ async function launchSelectedVersion() {
     installStatus.textContent = `Startvorbereitung für ${versionId}...`;
     installStatus.classList.remove('error');
     try {
-        const result = await window.herbruClient.launchVersion({
+        const result = await window.heibruClient.launchVersion({
             versionId,
             loader: 'fabric',
             loaderVersion: '0.16.14',
@@ -207,7 +207,7 @@ document.querySelectorAll('.filter-button').forEach((button) => {
 versionSearch.addEventListener('input', renderVersions);
 installButton.addEventListener('click', () => void installSelectedVersion());
 playButton.addEventListener('click', () => void launchSelectedVersion());
-void window.herbruClient.getMinecraftVersions().then((result) => {
+void window.heibruClient.getMinecraftVersions().then((result) => {
     manifest = result;
     document.querySelector('#connection-status').textContent = 'Verbunden';
     document.querySelector('#latest-release').textContent = `Aktuelles Release ${result.latest.release}`;
@@ -224,8 +224,8 @@ void window.herbruClient.getMinecraftVersions().then((result) => {
         installStatus.classList.remove('error');
     });
     return Promise.all([
-        window.herbruClient.listModProviders(),
-        window.herbruClient.searchMods(''),
+        window.heibruClient.listModProviders(),
+        window.heibruClient.searchMods(''),
     ]);
 }).then(([providers, mods]) => {
     renderProviders(providers);

@@ -34,7 +34,7 @@ function selectMinecraftVersions(
 
 declare global {
   interface Window {
-    herbruClient: {
+    heibruClient: {
       getMinecraftVersions(): Promise<MinecraftVersionManifest>;
       installVersion(target: { versionId: string; loader: string; loaderVersion: string; path: string; memoryMb: number }): Promise<{ installDir: string; metadataPath: string; status: string }>;
       launchVersion(target: { versionId: string; loader: string; loaderVersion: string; path: string; memoryMb: number }): Promise<{ installDir: string; metadataPath: string; status: string; openedPath: string }>;
@@ -163,7 +163,7 @@ async function installSelectedVersion(): Promise<void> {
   installStatus.classList.remove('error');
 
   try {
-    const result = await window.herbruClient.installVersion({
+    const result = await window.heibruClient.installVersion({
       versionId,
       loader: 'fabric',
       loaderVersion: '0.16.14',
@@ -195,7 +195,7 @@ async function launchSelectedVersion(): Promise<void> {
   installStatus.classList.remove('error');
 
   try {
-    const result = await window.herbruClient.launchVersion({
+    const result = await window.heibruClient.launchVersion({
       versionId,
       loader: 'fabric',
       loaderVersion: '0.16.14',
@@ -266,7 +266,7 @@ versionSearch.addEventListener('input', renderVersions);
 installButton.addEventListener('click', () => void installSelectedVersion());
 playButton.addEventListener('click', () => void launchSelectedVersion());
 
-void window.herbruClient.getMinecraftVersions().then((result: MinecraftVersionManifest) => {
+void window.heibruClient.getMinecraftVersions().then((result: MinecraftVersionManifest) => {
   manifest = result;
   document.querySelector('#connection-status')!.textContent = 'Verbunden';
   document.querySelector('#latest-release')!.textContent = `Aktuelles Release ${result.latest.release}`;
@@ -283,8 +283,8 @@ void window.herbruClient.getMinecraftVersions().then((result: MinecraftVersionMa
     installStatus.classList.remove('error');
   });
   return Promise.all([
-    window.herbruClient.listModProviders(),
-    window.herbruClient.searchMods(''),
+    window.heibruClient.listModProviders(),
+    window.heibruClient.searchMods(''),
   ]);
 }).then(([providers, mods]) => {
   renderProviders(providers);

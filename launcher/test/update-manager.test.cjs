@@ -12,10 +12,10 @@ test('compare versions for update checks', () => {
 
 test('select a Windows installer asset for the current platform', () => {
   const assets = [
-    { name: 'herbruclient-launcher-0.1.0-x64.nsis.7z', browser_download_url: 'https://example.test/7z' },
-    { name: 'HerbruClient Setup 0.1.0.exe', browser_download_url: 'https://example.test/exe' },
+    { name: 'heibruclient-launcher-0.1.0-x64.nsis.7z', browser_download_url: 'https://example.test/7z' },
+    { name: 'HeibruClient Setup 0.1.0.exe', browser_download_url: 'https://example.test/exe' },
   ];
 
   const chosen = chooseUpdateAsset(assets, 'win32');
-  assert.equal(chosen?.name, 'HerbruClient Setup 0.1.0.exe');
+  assert.equal(chosen?.name, 'HeibruClient Setup 0.1.0.exe');
 });

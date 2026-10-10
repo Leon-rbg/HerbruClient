@@ -11,7 +11,7 @@ const launcherDir = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = resolve(launcherDir, '..');
 const releaseRoot = resolve(repoRoot, 'release');
 const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-const releaseTarget = resolve(releaseRoot, `HerbruClient-${timestamp}`);
+const releaseTarget = resolve(releaseRoot, `HeibruClient-${timestamp}`);
 
 async function copyDirectory(source, target) {
   await mkdir(target, { recursive: true });
@@ -51,7 +51,7 @@ async function prepareRelease() {
 
   const packageJson = JSON.parse(await readFile(join(launcherDir, 'package.json'), 'utf8'));
   const manifest = {
-    name: 'HerbruClient',
+    name: 'HeibruClient',
     version: packageJson.version,
     buildTime: new Date().toISOString(),
     launcher: {
@@ -65,16 +65,16 @@ async function prepareRelease() {
       notes: 'Fabric client jar ready to be used with a local Minecraft installation.',
     },
     usage: [
-      '1. Open the launcher bundle in release/HerbruClient-<timestamp>/launcher',
+      '1. Open the launcher bundle in release/HeibruClient-<timestamp>/launcher',
       '2. Install dependencies in launcher/ with npm install',
       '3. Start the launcher with npm start',
-      '4. Use the copied client jar from release/HerbruClient-<timestamp>/client',
+      '4. Use the copied client jar from release/HeibruClient-<timestamp>/client',
     ],
   };
 
   await writeFile(join(releaseTarget, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
-  const releaseArchive = join(releaseRoot, `HerbruClient-${timestamp}.zip`);
+  const releaseArchive = join(releaseRoot, `HeibruClient-${timestamp}.zip`);
   createZipArchive(releaseTarget, releaseArchive);
 
   console.log(`Release prepared at ${releaseTarget}`);

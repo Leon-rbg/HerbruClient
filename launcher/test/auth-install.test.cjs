@@ -16,10 +16,10 @@ test('buildet eine offizielle Microsoft OAuth-URL', () => {
 });
 
 test('schützt Installationspfade vor Path Traversal und Archivpfaden', () => {
-  const target = validateSafePath('/tmp/herbruclient', 'instances/test');
+  const target = validateSafePath('/tmp/heibruclient', 'instances/test');
   assert.match(target, /instances\/test$/);
 
-  assert.throws(() => validateSafePath('/tmp/herbruclient', '../evil'));
+  assert.throws(() => validateSafePath('/tmp/heibruclient', '../evil'));
   assert.throws(() => sanitizeEntryPath('../escape.zip'));
 });
 
@@ -34,7 +34,7 @@ test('installiert eine Minecraft-Version im lokalen Projektpfad mit validierter 
     versionId: '1.20.1',
     loader: 'fabric',
     loaderVersion: '0.16.14',
-    path: '/tmp/herbruclient',
+    path: '/tmp/heibruclient',
     memoryMb: 2048,
   });
 
@@ -44,7 +44,7 @@ test('installiert eine Minecraft-Version im lokalen Projektpfad mit validierter 
 });
 
 test('persistiert sichere Session-Daten und erkennt abgelaufene Sitzungen', async () => {
-  const manager = new AuthManager('/tmp/herbruclient-auth.json');
+  const manager = new AuthManager('/tmp/heibruclient-auth.json');
   await manager.clearSession();
   await manager.saveSession({ accessToken: 'token', refreshToken: 'refresh', expiresAt: Date.now() + 60_000, tokenType: 'Bearer', scope: 'openid profile' });
   const session = await manager.loadSession();

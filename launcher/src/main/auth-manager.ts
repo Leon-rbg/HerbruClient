@@ -140,7 +140,7 @@ export class AuthManager {
   private readonly storagePath: string;
 
   public constructor(storageDir?: string) {
-    this.storagePath = storageDir ?? join(process.env.HERBRU_STORAGE_DIR ?? tmpdir(), 'herbruclient-auth.json');
+    this.storagePath = storageDir ?? join(process.env.HEIBRU_STORAGE_DIR ?? tmpdir(), 'heibruclient-auth.json');
   }
 
   public async saveSession(session: ManagedSession): Promise<void> {

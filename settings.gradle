@@ -6,5 +6,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'HerbruClient'
+rootProject.name = 'HeibruClient'
 include 'client'

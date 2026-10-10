@@ -41,15 +41,15 @@ async function collectClientDownload() {
   }
 
   const manifest = {
-    name: 'HerbruClient Client Download',
+    name: 'HeibruClient Client Download',
     generatedAt: new Date().toISOString(),
     files: packagedFiles,
     usage: 'Use the generated .jar file as the Fabric client artifact for a local Minecraft setup.',
-    archive: 'herbruclient-client.zip',
+    archive: 'heibruclient-client.zip',
   };
 
   const zipArchiveDir = resolve(repoRoot, 'release', 'downloads');
-  const zipArchivePath = join(zipArchiveDir, 'herbruclient-client.zip');
+  const zipArchivePath = join(zipArchiveDir, 'heibruclient-client.zip');
   createZipArchive(downloadDir, zipArchivePath);
 
   await writeFile(join(downloadDir, 'client-download.json'), JSON.stringify(manifest, null, 2));

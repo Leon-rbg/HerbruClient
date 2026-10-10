@@ -143,7 +143,7 @@ document.querySelectorAll('.filter-button').forEach((button) => {
     });
 });
 versionSearch.addEventListener('input', renderVersions);
-void window.herbruClient.getMinecraftVersions().then((result) => {
+void window.heibruClient.getMinecraftVersions().then((result) => {
     manifest = result;
     document.querySelector('#connection-status').textContent = 'Verbunden';
     document.querySelector('#latest-release').textContent = `Aktuelles Release ${result.latest.release}`;
@@ -152,8 +152,8 @@ void window.herbruClient.getMinecraftVersions().then((result) => {
     populateHomeVersions();
     renderVersions();
     return Promise.all([
-        window.herbruClient.listModProviders(),
-        window.herbruClient.searchMods(''),
+        window.heibruClient.listModProviders(),
+        window.heibruClient.searchMods(''),
     ]);
 }).then(([providers, mods]) => {
     renderProviders(providers);

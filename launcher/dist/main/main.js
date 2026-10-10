@@ -58,7 +58,7 @@ electron_1.ipcMain.handle('install:version', async (_event, target) => (0, insta
     versionId: target?.versionId ?? '1.20.1',
     loader: target?.loader ?? 'fabric',
     loaderVersion: target?.loaderVersion ?? '0.16.14',
-    path: target?.path ?? (0, node_path_1.join)(electron_1.app.getPath('userData'), 'HerbruClient'),
+    path: target?.path ?? (0, node_path_1.join)(electron_1.app.getPath('userData'), 'HeibruClient'),
     memoryMb: Number(target?.memoryMb ?? 2048),
 }));
 electron_1.ipcMain.handle('launch:version', async (_event, target) => {
@@ -66,7 +66,7 @@ electron_1.ipcMain.handle('launch:version', async (_event, target) => {
         versionId: target?.versionId ?? '1.20.1',
         loader: target?.loader ?? 'fabric',
         loaderVersion: target?.loaderVersion ?? '0.16.14',
-        path: target?.path ?? (0, node_path_1.join)(electron_1.app.getPath('userData'), 'HerbruClient'),
+        path: target?.path ?? (0, node_path_1.join)(electron_1.app.getPath('userData'), 'HeibruClient'),
         memoryMb: Number(target?.memoryMb ?? 2048),
     };
     const result = await (0, install_manager_1.installVersion)(installTarget);

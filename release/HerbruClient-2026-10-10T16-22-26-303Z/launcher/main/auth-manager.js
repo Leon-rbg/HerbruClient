@@ -104,7 +104,7 @@ async function validateMinecraftUser(accessToken) {
 class AuthManager {
     storagePath;
     constructor(storageDir) {
-        this.storagePath = storageDir ?? (0, node_path_1.join)(process.env.HERBRU_STORAGE_DIR ?? (0, node_os_1.tmpdir)(), 'herbruclient-auth.json');
+        this.storagePath = storageDir ?? (0, node_path_1.join)(process.env.HEIBRU_STORAGE_DIR ?? (0, node_os_1.tmpdir)(), 'heibruclient-auth.json');
     }
     async saveSession(session) {
         const payload = JSON.stringify(session, null, 2);

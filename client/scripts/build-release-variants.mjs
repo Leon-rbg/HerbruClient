@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const releaseVersion = JSON.parse(await readFile(join(repoRoot, 'launcher/package.json'), 'utf8')).version;
-const releaseName = `HerbruClient-v${releaseVersion}`;
+const releaseName = `HeibruClient-v${releaseVersion}`;
 const releaseDirectory = join(repoRoot, 'release', releaseName);
 const jarsDirectory = join(releaseDirectory, 'client');
 const releaseRoot = join(repoRoot, 'release');
@@ -80,7 +80,7 @@ async function buildVariant(variant) {
     throw new Error(`Minecraft ${variant.id} hat keine gültige Java-Anforderung im Mojang-Manifest.`);
   }
 
-  const expectedJarName = `herbruclient-mc-${variant.id}-${releaseVersion}.jar`;
+  const expectedJarName = `heibruclient-mc-${variant.id}-${releaseVersion}.jar`;
   const target = join(jarsDirectory, expectedJarName);
   let stagedJarExists = true;
   try {
@@ -92,7 +92,7 @@ async function buildVariant(variant) {
 
   if (stagedJarExists) {
     const metadata = JSON.parse(execFileSync('unzip', ['-p', target, 'fabric.mod.json'], { encoding: 'utf8' }));
-    if (metadata.id !== 'herbruclient'
+    if (metadata.id !== 'heibruclient'
         || metadata.version !== releaseVersion
         || metadata.depends?.minecraft !== variant.id
         || metadata.depends?.java !== `>=${variant.javaMajor}`) {
@@ -127,7 +127,7 @@ async function buildVariant(variant) {
     `-Pjava_major_version=${variant.javaMajor}`,
     `-Pbuild_java_version=${buildJavaVersion}`,
     `-Pmod_version=${releaseVersion}`,
-    `-Parchives_base_name=herbruclient-mc-${variant.id}`,
+    `-Parchives_base_name=heibruclient-mc-${variant.id}`,
   ], { cwd: repoRoot, stdio: 'inherit' });
 
   const jars = (await readdir(join(repoRoot, 'client/build/libs'), { withFileTypes: true }))
@@ -168,7 +168,7 @@ for (const variant of variants) {
 }
 
 const manifest = {
-  name: 'HerbruClient',
+  name: 'HeibruClient',
   version: releaseVersion,
   generatedAt: new Date().toISOString(),
   support: {

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const electron_1 = require("electron");
-electron_1.contextBridge.exposeInMainWorld('herbruClient', {
+electron_1.contextBridge.exposeInMainWorld('heibruClient', {
     getMinecraftVersions: () => electron_1.ipcRenderer.invoke('minecraft:versions'),
     buildMicrosoftAuthUrl: (config, state, nonce) => electron_1.ipcRenderer.invoke('auth:build-url', config, state, nonce),
     exchangeCodeForTokens: (config, code) => electron_1.ipcRenderer.invoke('auth:exchange-code', config, code),

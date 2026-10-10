@@ -1,7 +1,7 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import type { MinecraftVersionManifest } from './version-catalog';
 
-contextBridge.exposeInMainWorld('herbruClient', {
+contextBridge.exposeInMainWorld('heibruClient', {
   getMinecraftVersions: (): Promise<MinecraftVersionManifest> => ipcRenderer.invoke('minecraft:versions'),
   buildMicrosoftAuthUrl: (config: { clientId: string; redirectUri: string; scopes?: string[]; tenantId?: string }, state: string, nonce: string): Promise<string> => ipcRenderer.invoke('auth:build-url', config, state, nonce),
   exchangeCodeForTokens: (config: { clientId: string; redirectUri: string; scopes?: string[]; tenantId?: string }, code: string): Promise<{ access_token: string; refresh_token?: string; token_type: string; expires_in: number; scope?: string }> => ipcRenderer.invoke('auth:exchange-code', config, code),

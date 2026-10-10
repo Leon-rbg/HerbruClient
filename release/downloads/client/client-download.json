@@ -1,18 +1,18 @@
 {
-  "name": "HerbruClient Client Download",
+  "name": "HeibruClient Client Download",
   "generatedAt": "2026-10-10T16:24:46.246Z",
   "files": [
     {
-      "file": "herbruclient-0.1.0-sources.jar",
+      "file": "heibruclient-0.1.0-sources.jar",
       "size": 1938,
-      "path": "release/downloads/client/herbruclient-0.1.0-sources.jar"
+      "path": "release/downloads/client/heibruclient-0.1.0-sources.jar"
     },
     {
-      "file": "herbruclient-0.1.0.jar",
+      "file": "heibruclient-0.1.0.jar",
       "size": 2934,
-      "path": "release/downloads/client/herbruclient-0.1.0.jar"
+      "path": "release/downloads/client/heibruclient-0.1.0.jar"
     }
   ],
   "usage": "Use the generated .jar file as the Fabric client artifact for a local Minecraft setup.",
-  "archive": "herbruclient-client.zip"
+  "archive": "heibruclient-client.zip"
 }

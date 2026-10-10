@@ -20,7 +20,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        herbruclient {
+        heibruclient {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }

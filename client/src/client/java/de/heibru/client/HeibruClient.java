@@ -1,4 +1,4 @@
-package de.herbru.client;
+package de.heibru.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -9,16 +9,16 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
-public final class HerbruClient implements ClientModInitializer {
+public final class HeibruClient implements ClientModInitializer {
     private static boolean hudVisible = true;
 
     @Override
     public void onInitializeClient() {
         KeyBinding toggleHud = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.herbruclient.toggle_hud",
+                "key.heibruclient.toggle_hud",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_H,
-                "category.herbruclient"
+                "category.heibruclient"
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -35,7 +35,7 @@ public final class HerbruClient implements ClientModInitializer {
 
             drawContext.drawTextWithShadow(
                     client.textRenderer,
-                    "HerbruClient | FPS " + client.getCurrentFps(),
+                    "HeibruClient | FPS " + client.getCurrentFps(),
                     8,
                     8,
                     0xEAF5E8

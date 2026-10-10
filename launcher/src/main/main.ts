@@ -61,7 +61,7 @@ ipcMain.handle('install:version', async (_event, target) => installVersion({
   versionId: target?.versionId ?? '1.20.1',
   loader: target?.loader ?? 'fabric',
   loaderVersion: target?.loaderVersion ?? '0.16.14',
-  path: target?.path ?? join(app.getPath('userData'), 'HerbruClient'),
+  path: target?.path ?? join(app.getPath('userData'), 'HeibruClient'),
   memoryMb: Number(target?.memoryMb ?? 2048),
 }));
 ipcMain.handle('launch:version', async (_event, target) => {
@@ -69,7 +69,7 @@ ipcMain.handle('launch:version', async (_event, target) => {
     versionId: target?.versionId ?? '1.20.1',
     loader: target?.loader ?? 'fabric',
     loaderVersion: target?.loaderVersion ?? '0.16.14',
-    path: target?.path ?? join(app.getPath('userData'), 'HerbruClient'),
+    path: target?.path ?? join(app.getPath('userData'), 'HeibruClient'),
     memoryMb: Number(target?.memoryMb ?? 2048),
   };
 
