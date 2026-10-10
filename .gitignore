@@ -1,0 +1,15 @@
+.gradle/
+# keep generated release artifacts visible in repo
+!release/
+!release/**
+!client/build/
+!client/build/**
+!launcher/dist/
+!launcher/dist/**
+!launcher/release/
+!launcher/release/**
+
+# keep dev dependencies and local cache ignored
+launcher/node_modules/
+*.log
+.DS_Store
